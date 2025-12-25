@@ -22,6 +22,6 @@ fun main(){
     println(numberOfWholeMinutes)
     println(remainingSecondsAfterСonversionToMinutes)
 
-    //Вывожу в консоль время, проведенное в космосе в формате [часы:минуты:секунды]
+    //Вывожу в консоль время, проведённое в космосе в формате [часы:минуты:секунды]
     println(String.format("%02d:%02d:%02d", numberOfWholeHours, numberOfWholeMinutes, remainingSecondsAfterСonversionToMinutes))
 }
