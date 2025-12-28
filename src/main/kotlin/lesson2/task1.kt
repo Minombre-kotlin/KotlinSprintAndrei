@@ -1,6 +1,8 @@
 package org.example.lesson2
 
 fun main() {
-    val averageNew1: Float = (3 + 4 + 3 + 5) / 4f
-    println(averageNew1)
+    val numberOfSchoolchildren: Int = 4
+    val totalPointsInEnglish: Int = 3 + 4 + 3 + 5
+    val averageEnglishPointsFloat: Float = totalPointsInEnglish.toFloat() / numberOfSchoolchildren
+    println(averageEnglishPointsFloat)
 }
