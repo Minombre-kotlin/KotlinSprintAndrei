@@ -3,11 +3,11 @@ package org.example.lesson2
 fun main() {
     val crystallineOre: Int = 7
     val metalOre: Int = 11
-    val buff: Double = 1.2
-    val crystallineOreBuff: Int = (crystallineOre * buff).toInt()
-    val metalOreBuff: Int = (metalOre * buff).toInt()
-    val numberOfBonusCrystallineOre: Int = crystallineOreBuff - crystallineOre
-    val numberOfBonusMetalOre: Int = metalOreBuff - metalOre
-    println("Количество бонусных материалов кристаллической руды:$numberOfBonusCrystallineOre")
-    println("Количество бонусных материалов железной руды: $numberOfBonusMetalOre")
+    val percentOffBuff: Int = 20
+    val fullPercent: Int = 100
+    val buffCrystallineOre: Int = percentOffBuff * crystallineOre / fullPercent
+    val buffMetalOre: Int = percentOffBuff * metalOre / fullPercent
+
+    println("Количество бонусных материалов кристаллической руды:$buffCrystallineOre")
+    println("Количество бонусных материалов железной руды: $buffMetalOre")
 }
