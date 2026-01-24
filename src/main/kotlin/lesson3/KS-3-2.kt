@@ -1,12 +1,16 @@
 package org.example.lesson3
 
 fun main() {
-    val nameMaiden: String = "Андреева Татьяна Сергеевна"
-    val nameAfterMarriage: String = "Сидорова Татьяна Сергеевна"
 
-    val ageBeforeMarriage: Int = 20
-    val ageAfterMarriage: Int = 22
+    var lastName: String = "Андреева"
+    var firstName: String = "Татьяна"
+    var patronymic: String = "Сергеевна"
+    var age = 20
 
-    println("ФИО до замужества: $nameMaiden, возраст до замужества: $ageBeforeMarriage лет")
-    println("ФИО после замужества: $nameAfterMarriage, возраст после замужества: $ageAfterMarriage лет")
+    println("ФИО до замужества: $lastName, $firstName, $patronymic возраст до замужества: $age лет")
+
+    lastName = "Сидорова"
+    age = 22
+
+    println("ФИО после замужества: $lastName, $firstName, $patronymic возраст после замужества: $age лет")
 }
