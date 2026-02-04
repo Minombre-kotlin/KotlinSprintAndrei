@@ -4,17 +4,12 @@ fun main() {
     var trainingDay: Int = 5
     val notEvenDay = trainingDay % 2 != 0
 
-    val exerciseForHands = notEvenDay
-    val exerciseForFoot = !notEvenDay
-    val exerciseForBack = !notEvenDay
-    val exerciseForPress = notEvenDay
-
     println(
         """
-        Упражнения для рук: $exerciseForHands
-        Упражнения для ног: $exerciseForFoot
-        Упражнения для спины: $exerciseForBack
-        Упражнения для пресса: $exerciseForPress
+        Упражнения для рук: $notEvenDay
+        Упражнения для ног: ${!notEvenDay}
+        Упражнения для спины: ${!notEvenDay}
+        Упражнения для пресса: $notEvenDay
     """.trimIndent()
     )
 }
