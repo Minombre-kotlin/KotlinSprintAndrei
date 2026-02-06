@@ -9,7 +9,7 @@ fun main() {
     var currentYear: Int = 2026
 
     if (userYear == null) {
-        println("Введено недопустимое значение. Год должен быть введен цифрами")
+        println("Введено недопустимое значение. Введите, пожалуйста, год цифрами")
     } else if ((currentYear - userYear) < AGE_OF_MAJORITY) {
         println("Показать экран со скрытым контентом")
     } else println("Не показывать экран со скрытым контентом")
