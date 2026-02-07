@@ -1,4 +1,4 @@
-﻿package org.example.lesson5
+package org.example.lesson5
 
 fun main() {
     val firstNumber: Int = 2
