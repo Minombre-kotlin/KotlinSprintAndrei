@@ -27,14 +27,13 @@ fun main() {
     val sizeOfResultingCollection = comparisonOfTwoLists.size
     println("Количество совпадений: $sizeOfResultingCollection")
 
-    if (sizeOfResultingCollection == 3) {
-        println("Поздравляем вас! Угаданы все числа и выигран джекпот!")
-    } else if (sizeOfResultingCollection == 2) {
-        println("Это успех! Вы угадали два числа и получаете крупный приз!")
-    } else if (sizeOfResultingCollection == 1) {
-        println("Угадано одно число. Вы получаете утешительный приз")
-    } else if (sizeOfResultingCollection == 0) {
-        println("К сожалению, вы не отгадали ни одно число. Но не отчаивайтесь, ведь вы можете попробовать снова")
+    val sizeCollection = when (sizeOfResultingCollection) {
+        3 -> "Поздравляем вас! Угаданы все числа и выигран джекпот!"
+        2 -> "Это успех! Вы угадали два числа и получаете крупный приз!"
+        1 -> "Угадано одно число. Вы получаете утешительный приз"
+        else -> "К сожалению, вы не отгадали ни одно число. Но не отчаивайтесь, ведь вы можете попробовать снова"
     }
+    println(sizeCollection)
+
     println("Выигрышные числа (совпавшие числа): $comparisonOfTwoLists")
 }
