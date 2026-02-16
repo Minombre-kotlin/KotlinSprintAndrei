@@ -6,10 +6,12 @@ fun main() {
 
     if (numberOfSeconds == null) {
         println("Для таймера необходимо ввести число")
-    } else
+    } else {
         while (numberOfSeconds > 0) {
-            println("Осталось ${numberOfSeconds--} секунд")
+            println("Осталось ${numberOfSeconds} секунд")
+            numberOfSeconds--
             Thread.sleep(1000)
         }
+    }
     println("Время вышло")
 }
