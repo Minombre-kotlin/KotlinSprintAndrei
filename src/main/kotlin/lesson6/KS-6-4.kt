@@ -1,29 +1,25 @@
 package org.example.lesson6
 
-import kotlin.random.Random
-
 fun main() {
-    println("Отгадай число от 1 до 9. Есть 5 попыток")
-    var userNumber: Int
-    val correctNumber = Random.nextInt(1, 10)
-    var remainingAttempts: Int = 5
-    var isGuessed = false
+    println("Отгадай число от 1 до 9. На это даётся 5 попыток.")
+    val correctNumber = (1..9).random()
+    var remainingAttempts = 5
 
-    while (remainingAttempts > 0 && !isGuessed) {
-        println("Попытка №${6 - remainingAttempts}: ")
-
-        userNumber = readln().toInt()
-        remainingAttempts--
+    do {
+        println("Введи число. Осталось $remainingAttempts попыток")
+        val userNumber = readln().toInt()
 
         if (userNumber == correctNumber) {
             println("Это была великолепная игра!")
-            isGuessed = true
-        } else
-            println("К сожалению, вы не угадали число. Оставшееся число попыток: $remainingAttempts")
+            return
+        } else {
+            remainingAttempts--
+            if (remainingAttempts > 0) {
+                println("К сожалению, ты не отгадал число. Оставшееся число попыток : $remainingAttempts")
+            }
+        }
+    } while (remainingAttempts > 0)
 
-    }
 
-    if (!isGuessed) {
-        println("Было загадано число $correctNumber")
-    }
+    println("Попытки закончились. Было загадано число $correctNumber")
 }
