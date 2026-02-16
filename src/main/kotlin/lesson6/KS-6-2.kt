@@ -5,9 +5,8 @@ fun main() {
     var numberOfSeconds = readln().toIntOrNull()
     if (numberOfSeconds == null) {
         println("Для таймера необходимо ввести число")
-    } else
-        while (numberOfSeconds > 0) {
-            println("Прошло ${numberOfSeconds--} секунд")
-            Thread.sleep(1000)
-        }
+    } else {
+        println("Прошло ${numberOfSeconds--} секунд")
+        Thread.sleep(1000)
+    }
 }
