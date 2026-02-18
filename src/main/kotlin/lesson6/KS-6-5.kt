@@ -1,28 +1,22 @@
 package org.example.lesson6
 
-import kotlin.random.Random
-
 fun main() {
-    var number1 = Random.nextInt(1, 10)
-    var number2 = Random.nextInt(1, 10)
-    val sum: Int = number1 + number2
-    var isGuessed: Boolean = false
-    var userAttempt: Int = 3
+    var number1 = (1..9).random()
+    var number2 = (1..9).random()
+    var remainingAttempts = 3
 
-    println("Для входа в приложение докажите, что вы не бот. Для этого решите пример:$number1 + $number2")
-
-    while (userAttempt > 0 && !isGuessed) {
-        println("Попытка №${4 - userAttempt} ")
-
-        var userSum = readln().toInt()
-        userAttempt--
-
-        if (userSum == sum) {
+    do {
+        println("Для входа в приложение докажите, что вы не бот. Для этого решите пример и напишите ответ: $number1 + $number2")
+        val userSum = readln().toInt()
+        if (userSum == number1 + number2) {
             println("Добро пожаловать!")
-            isGuessed = true
+            return
+        } else {
+            remainingAttempts--
+            if (remainingAttempts > 0) {
+                println("Доступ запрещён. Оставшееся число попыток: $remainingAttempts")
+            }
         }
-    }
-    if (!isGuessed) {
-        println("Доступ запрещён")
-    }
+    } while (remainingAttempts > 0)
+    println("Попытки закончились")
 }
