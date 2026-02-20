@@ -3,14 +3,18 @@ package org.example.lesson7
 fun main() {
     val minNumber = 0
     val maxNumber = 6
+    var numers = 0..9
+    var letters = 'a'..'z'
+    val password = StringBuilder()
 
     for (i in minNumber until maxNumber) {
         if (i % 2 == 0) {
-            var numers = (0..9).random()
-            print(numers)
+            val randomNumber = numers.random()
+            password.append(randomNumber)
         } else {
-            var letters = ('a'..'z').random()
-            print(letters)
+            val randomLetter = letters.random()
+            password.append(randomLetter)
         }
     }
+    println(password.toString())
 }
