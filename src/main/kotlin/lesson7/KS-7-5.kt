@@ -1,9 +1,9 @@
 package org.example.lesson7
 
 fun main() {
-    val numbers = "0123456789"
-    val smallLetters = "abcdefghijklmnopqrstuvwxyz"
-    val capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    val numbers = '0'..'9'
+    val smallLetters = 'a'..'z'
+    val capitalLetters = 'A'..'Z'
     val allSymbols = numbers + smallLetters + capitalLetters
 
     val minPasswordLength = 6
@@ -15,14 +15,17 @@ fun main() {
         return
     }
 
-    var password = ""
-
     val random = kotlin.random.Random
+    val passwordSymbols = mutableListOf<Char>()
 
-    for (i in 1..passwordLength) {
-        val index = random.nextInt(allSymbols.length)
-        password += allSymbols[index]
+    passwordSymbols += numbers.random()
+    passwordSymbols += smallLetters.random()
+    passwordSymbols += capitalLetters.random()
+
+    for (i in 3 until passwordLength) {
+        passwordSymbols += allSymbols.random()
     }
-
+    passwordSymbols.shuffle()
+    val password = passwordSymbols.joinToString("")
     println("Сгенерированный пароль: $password")
 }
