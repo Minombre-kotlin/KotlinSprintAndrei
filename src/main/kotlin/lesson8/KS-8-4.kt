@@ -10,13 +10,13 @@ fun main() {
     """.trimIndent()
     )
     val userIngredient = readln()
+    val indexUserIngredient = saladIngredients.indexOf(userIngredient)
 
-    if (userIngredient !in saladIngredients) {
+    if (indexUserIngredient == -1) {
         println("Данного ингредиента нет в рецепте. Введите название ингредиента, который есть в рецепте")
     } else {
         println("Отлично. А теперь введите название ингредиента, который вы хотели бы добавить в рецепт")
         val newUserIngredient = readln()
-        val indexUserIngredient = saladIngredients.indexOf(userIngredient)
         saladIngredients[indexUserIngredient] = newUserIngredient
 
         println("Готово! Вы сохранили следующий список: ${saladIngredients.joinToString(", ")}.")
