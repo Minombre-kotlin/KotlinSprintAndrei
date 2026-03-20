@@ -30,7 +30,6 @@ fun dataValidation(userLogin: String?, userPassword: String?): Boolean {
     ) {
         return false
     } else if (userLogin.length < LENGTH || userPassword.length < LENGTH) {
-        println("Логин или пароль недостаточно длинные")
         return false
     } else {
         return true
