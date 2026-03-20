@@ -1,5 +1,7 @@
 package org.example.lesson10
 
+const val LENGTH: Int = 4
+
 fun main() {
     println("Придумайте логин: ")
     val userLogin = readln()
@@ -7,19 +9,9 @@ fun main() {
     println("Придумайте пароль: ")
     val userPassword = readln()
 
-    dataValidation(userLogin, userPassword)
-}
+    val isValidation = dataValidation(userLogin, userPassword)
 
-fun dataValidation(userLogin: String?, userPassword: String?) {
-    if (userLogin == null || userPassword == null
-        || userLogin.isEmpty() || userPassword.isEmpty()
-    ) {
-        println("Ввод прерван. Попробуйте ввести снова")
-        return
-    } else if (userLogin.length < 4 || userPassword.length < 4) {
-        println("Логин или пароль недостаточно длинные")
-        return
-    } else {
+    if (isValidation) {
         println(
             """
             Ваши данные:
@@ -27,6 +19,20 @@ fun dataValidation(userLogin: String?, userPassword: String?) {
             Пароль: $userPassword
         """.trimIndent()
         )
+    } else {
+        println("Ошибка: логин или пароль не соответствуют длине")
     }
-    return
+}
+
+fun dataValidation(userLogin: String?, userPassword: String?): Boolean {
+    if (userLogin == null || userPassword == null
+        || userLogin.isEmpty() || userPassword.isEmpty()
+    ) {
+        return false
+    } else if (userLogin.length < LENGTH || userPassword.length < LENGTH) {
+        println("Логин или пароль недостаточно длинные")
+        return false
+    } else {
+        return true
+    }
 }
