@@ -5,27 +5,30 @@ const val CORRECT_PASSWORD = "12345"
 
 fun main() {
     println("Для авторизации в магазине, пожалуйста, введите свои данные. Введите логин: ")
-    val userLogin: String? = readln()
+    val userLogin: String = readln()
 
     println("Введите пароль: ")
-    val userPassword: String? = readln()
+    val userPassword: String = readln()
 
-    val token = acceptLoginAndPassword(userLogin, userPassword)
+    val token = authenticateUser(userLogin, userPassword)
 
     if (token != null) {
-        val cart = getCart(token)
+        val cart = verifyCredentials(token)
         println("Содержимое вашей корзины: ${cart.joinToString(", ")}")
     } else {
         println("Неудачная попытка авторизации")
     }
 }
 
-fun acceptLoginAndPassword(userLogin: String?, userPassword: String?): String? {
-    var token: String? = ""
+
+fun authenticateUser(userLogin: String, userPassword: String): String? {
+    var token: String? = null
 
     if (userLogin == CORRECT_LOGIN && userPassword == CORRECT_PASSWORD) {
         for (i in 0 until 32) {
-            val randomSymbol = ("01234567abcdefghijklmnopqrstuvwxyz").random()
+            val letters = 'A'..'Z'
+            val numbers = '0'..'7'
+            val randomSymbol = ("$letters + $numbers").random()
             token += randomSymbol
         }
     } else {
@@ -34,7 +37,6 @@ fun acceptLoginAndPassword(userLogin: String?, userPassword: String?): String? {
     return token
 }
 
-fun getCart(token: String): List<String> {
-    val cart = listOf("Телевизор", "ТВ приставка", "Пульт")
-    return cart
+fun verifyCredentials(token: String): List<String> {
+    return listOf("Телевизор", "ТВ приставка", "Пульт")
 }
