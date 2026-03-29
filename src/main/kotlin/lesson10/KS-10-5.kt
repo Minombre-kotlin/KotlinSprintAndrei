@@ -4,6 +4,7 @@ const val CORRECT_LOGIN = "Buyer"
 const val CORRECT_PASSWORD = "12345"
 
 fun main() {
+
     println("Для авторизации в магазине, пожалуйста, введите свои данные. Введите логин: ")
     val userLogin: String = readln()
 
@@ -20,16 +21,18 @@ fun main() {
     }
 }
 
-
 fun authenticateUser(userLogin: String, userPassword: String): String? {
-    var token: String? = null
+
+    var token: String? = ""
 
     if (userLogin == CORRECT_LOGIN && userPassword == CORRECT_PASSWORD) {
+        val letters = 'A'..'Z'
+        val numbers = '0'..'7'
+        val symbols = letters + numbers
+
         for (i in 0 until 32) {
-            val letters = 'A'..'Z'
-            val numbers = '0'..'7'
-            val randomSymbol = ("$letters + $numbers").random()
-            token += randomSymbol
+            symbols.random()
+            token += symbols
         }
     } else {
         token = null
@@ -38,5 +41,6 @@ fun authenticateUser(userLogin: String, userPassword: String): String? {
 }
 
 fun verifyCredentials(token: String): List<String> {
+
     return listOf("Телевизор", "ТВ приставка", "Пульт")
 }
