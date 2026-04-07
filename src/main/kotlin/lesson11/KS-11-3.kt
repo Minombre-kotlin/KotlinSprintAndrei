@@ -6,15 +6,13 @@ class User(
     val nickname: String,
     var speakerStatus: String,
 
-    ) {
-
-}
+    )
 
 class Room(
 
     val cover: String,
     val name: String,
-    val participantsList: MutableList<User>,
+    val participantsList: MutableList<User> = mutableListOf(),
 
     ) {
     fun addParticipantInRoom(user: User) {
@@ -23,10 +21,10 @@ class Room(
 
     }
 
-    fun updateParticipantStatus(spikerStatus: String, nickname: String) {
+    fun updateParticipantStatus(speakerStatus: String, nickname: String) {
 
         val user = participantsList.find { it.nickname == nickname }
-        user?.speakerStatus = spikerStatus
+        user?.speakerStatus = speakerStatus
     }
 }
 
@@ -53,6 +51,8 @@ fun main() {
     val room1 = Room(
         cover = "Домик",
         name = "Домашняя комната",
-        participantsList = mutableListOf(user1, user2, user3)
     )
+    room1.addParticipantInRoom(user1)
+    room1.addParticipantInRoom(user2)
+    room1.addParticipantInRoom(user3)
 }
