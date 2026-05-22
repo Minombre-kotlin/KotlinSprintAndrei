@@ -2,7 +2,7 @@ package org.example.lesson12
 
 import kotlin.random.Random
 
-class Weather2(dayKelvin: Int, nightKelvin: Int, hasRain: Boolean) {
+class Weather2(val dayKelvin: Int, val nightKelvin: Int) {
 
     companion object {
         private const val KELVIN_TO_CELSIUS = 273
@@ -10,26 +10,16 @@ class Weather2(dayKelvin: Int, nightKelvin: Int, hasRain: Boolean) {
 
     val dayTemp: Int = dayKelvin - KELVIN_TO_CELSIUS
     val nightTemp: Int = nightKelvin - KELVIN_TO_CELSIUS
-    val hasRain: Boolean = hasRain
+    val hasRain: Boolean = Random.nextBoolean()
 
-    fun printInfo() {
-        println("День: $dayTemp°C, Ночь: $nightTemp°C")
-    }
-
-    init {
-        printInfo()
-    }
 }
 
 fun main() {
-    val weatherList = mutableListOf<Weather2>()
-
-    repeat(30) {
-        val randomDay = Random.nextInt(250, 310)
-        val randomNight = Random.nextInt(240, 290)
-        val randomRain = Random.nextBoolean()
-
-        weatherList.add(Weather2(randomDay, randomNight, randomRain))
+    val weatherList = List(30) {
+        Weather2(
+            Random.nextInt(280, 310),
+            Random.nextInt(270, 295)
+        )
     }
 
     val dayTemps = weatherList.map { it.dayTemp }
