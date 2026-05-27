@@ -1,4 +1,4 @@
-package org.example.lesson10new
+package org.example.lesson10 new
 
 const val LENGTH: Int = 4
 
