@@ -4,7 +4,11 @@ data class PhoneBookEntry(
     val name: String,
     val phoneNumber: Long,
     val company: String? = null,
-)
+) {
+    fun printInfo() {
+        println("Имя: $name, Телефон: $phoneNumber, Компания: ${company ?: "не указана"}")
+    }
+}
 
 fun main() {
     val contacts = mutableListOf<PhoneBookEntry>()
@@ -23,5 +27,5 @@ fun main() {
         val company = readln().ifEmpty { null }
         contacts.add(PhoneBookEntry(name, phoneNumber, company))
     }
-    println(contacts)
+    contacts.forEach { it.printInfo() }
 }
